@@ -114,6 +114,7 @@ $result = $stmt->get_result();
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Created At</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
 
@@ -145,13 +146,25 @@ $result = $stmt->get_result();
                                             : 'N/A';
                                         ?>
                                     </td>
+                                    <td>
+                                        <a href="update.php?id=<?php echo $row['id']; ?>"
+                                         class="btn btn-primary btn-sm">
+                                         Update
+                                        </a>
+
+                                        <a href="delete.php?id=<?php echo $row['id']; ?>"
+                                        class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Are you sure you want to delete this entry?');">
+                                        Delete
+                                        </a>
+                                    </td>
                                 </tr>
                             <?php endwhile; ?>
 
                         <?php else: ?>
 
                             <tr>
-                                <td colspan="5" class="text-center text-muted">
+                                <td colspan="6" class="text-center text-muted">
                                     No entries found.
                                 </td>
                             </tr>
